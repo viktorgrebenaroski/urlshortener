@@ -26,7 +26,7 @@ router.post('/create', async (req, res, next) => {
     expires
   } = req.body;
   try {
-    const urlOutput = nanoid(16);
+    const urlOutput = nanoid(8);
     await Urls.query().insert({
       url: urlOutput,
       toUrl: url,
