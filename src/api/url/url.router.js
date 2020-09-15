@@ -5,10 +5,8 @@ const Urls = require('./url.model.js');
 
 const router = express.Router();
 
-router.post('/', async (req, res, next) => {
-  const {
-    url
-  } = req.body;
+router.get('/:url', async (req, res, next) => {
+  const { url } = req.params;
   try {
     const getToUrl = await Urls.query().where({ url }).first();
     res.json({
