@@ -9,14 +9,17 @@ require('dotenv').config();
 require('./db');
 
 const middlewares = require('./middlewares');
-const api = require('./api').default;
+const api = require('./api');
 
 const app = express();
 app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-const useStatic = express.static(path.join(__dirname, '../public/dist'));
+const useStatic = express.static(path.join(__dirname, '../frontend/dist'));
+
+app.use('/api/v1', api);
+
 app.use(useStatic);
 app.use(history({
   disableDotRule: true,
@@ -25,10 +28,8 @@ app.use(history({
 app.use(useStatic);
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, '../public/dist') });
+  res.sendFile('index.html', { root: path.join(__dirname, '../frontend/dist') });
 });
-
-app.use('/v1', api);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);

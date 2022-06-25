@@ -43,7 +43,7 @@ export default {
       e.preventDefault();
       if (this.url !== '') {
         axios
-          .post('/v1/url/create', {
+          .post('/api/v1/url/create', {
             url: this.url,
           })
           .then((res) => {

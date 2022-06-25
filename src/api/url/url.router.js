@@ -1,7 +1,7 @@
 const express = require('express');
 const { nanoid } = require('nanoid');
 
-const Urls = require('./url.model.js');
+const Urls = require('./url.model');
 
 const router = express.Router();
 

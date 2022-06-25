@@ -5,7 +5,7 @@ export default {
   name: 'Redirect',
   beforeCreate() {
     return axios
-      .get(`/v1/url/${this.$route.params.url}`,
+      .get(`/api/v1/url/${this.$route.params.url}`,
         {
           headers: {
             'Content-Type': 'application/json',

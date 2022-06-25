@@ -13,8 +13,5 @@ export default {
   components: {
     UrlShortenerForm,
   },
-  mounted() {
-    document.title = 'Url Shortener';
-  },
 };
 </script>
