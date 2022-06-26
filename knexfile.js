@@ -6,6 +6,9 @@ module.exports = {
   development: {
     client: process.env.DB_CLIENT,
     connection: process.env.DB_URI,
+    ssl: {
+      rejectUnauthorized: false,
+    }
     /* {
       host: process.env.DB_HOST,
       database: process.env.DB_DATABASE,
@@ -24,7 +27,10 @@ module.exports = {
 
   production: {
     client: process.env.DB_CLIENT,
-    connection: process.env.DB_URI
+    connection: process.env.DB_URI,
+    ssl: {
+      rejectUnauthorized: false,
+    }
     /* {
       host: process.env.DB_HOST,
       database: process.env.DB_DATABASE,
