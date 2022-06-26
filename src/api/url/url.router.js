@@ -32,7 +32,7 @@ router.post('/create', async (req, res, next) => {
       expiresOn: expires
     });
     res.json({
-      url: `https://urlshortenermk.herokuapp.com/${urlOutput}`
+      url: `https://urlshortenerappmk.herokuapp.com/${urlOutput}`
     });
   } catch (error) {
     next(error);
