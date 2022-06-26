@@ -24,8 +24,6 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
   name: 'UrlShortenerForm',
   data() {
@@ -42,12 +40,16 @@ export default {
     submitForm(e) {
       e.preventDefault();
       if (this.url !== '') {
-        axios
-          .post('/api/v1/url/create', {
-            url: this.url,
-          })
-          .then((res) => {
-            this.urlResult = res.data.url;
+        fetch('/api/v1/url/create', {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+          body: JSON.stringify({ url: this.url }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            this.urlResult = data.url;
             this.url = '';
             this.showResult = true;
           });
