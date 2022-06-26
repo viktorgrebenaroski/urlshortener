@@ -5,13 +5,14 @@ module.exports = {
 
   development: {
     client: process.env.DB_CLIENT,
-    connection: {
+    connection: process.env.DB_URI,
+    /* {
       host: process.env.DB_HOST,
       database: process.env.DB_DATABASE,
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       port: process.env.DB_PORT
-    },
+    }, */
     migrations: {
       directory: './db/migrations'
     },
@@ -23,13 +24,14 @@ module.exports = {
 
   production: {
     client: process.env.DB_CLIENT,
-    connection: {
+    connection: process.env.DB_URI
+    /* {
       host: process.env.DB_HOST,
       database: process.env.DB_DATABASE,
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       port: process.env.DB_PORT
-    }
+    } */
   }
 
 };
