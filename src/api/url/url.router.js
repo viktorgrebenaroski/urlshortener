@@ -32,7 +32,7 @@ router.post('/create', async (req, res, next) => {
       expiresOn: expires
     });
     res.json({
-      url: `https://ushorty.ml/${urlOutput}`
+      url: `https://urlshortener.mydevsoft.com/${urlOutput}`
     });
   } catch (error) {
     next(error);
